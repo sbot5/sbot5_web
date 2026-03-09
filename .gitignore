@@ -1,0 +1,14 @@
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Frontend (React/Node)
+frontend/node_modules/
+frontend/dist/
+frontend/.env/
+
+# Backend (Rust/Cargo)
+backend/target/
+**/*.rs.bk
+
+.vscode/
