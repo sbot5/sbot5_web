@@ -6,5 +6,5 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- 在 posts 表中关联用户 (可选，目前我们先全局管理文章)
-ALTER TABLE posts ADD COLUMN author_id UUID REFERENCES users(id);
+-- 使用 IF NOT EXISTS 确保多次运行不报错
+ALTER TABLE posts ADD COLUMN IF NOT EXISTS author_id UUID REFERENCES users(id);

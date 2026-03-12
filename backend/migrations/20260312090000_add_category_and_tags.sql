@@ -1,0 +1,3 @@
+-- 这是一个补丁迁移，用于添加之前缺少的字段
+ALTER TABLE posts ADD COLUMN IF NOT EXISTS category VARCHAR(100);
+ALTER TABLE posts ADD COLUMN IF NOT EXISTS tags TEXT;
