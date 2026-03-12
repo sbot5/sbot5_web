@@ -13,8 +13,23 @@ tokio = {version = "1.36", features = ["full"]}
 sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres", "macros"] }
 # 读取 .env 文件
 dotenvy = "0.15"
-# 序列化/反序列化（后续处理 JSON 数据会用到）
+# 序列化/反序列化
 serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# 数据校验
+validator = { version = "0.16", features = ["derive"] }
+
+# 身份验证
+jsonwebtoken = "9.2"
+bcrypt = "0.15"
+
+# 日志记录
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# HTTP 中间件
+tower-http = { version = "0.5", features = ["cors", "auth"] }
 
 uuid = { version = "1.7", features = ["v4", "serde"] }
 chrono = { version = "0.4", features = ["serde"] }
