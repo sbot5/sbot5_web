@@ -5,11 +5,11 @@ Thumbs.db
 # Frontend (React/Node)
 frontend/node_modules/
 frontend/dist/
-frontend/.env/
+frontend/.env
 
 # Backend (Rust/Cargo)
 backend/target/
-backend/.env/
+backend/.env
 **/*.rs.bk
 
 .vscode/

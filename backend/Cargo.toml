@@ -4,32 +4,45 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-# Web Framework
-axum = "0.7"
-#异步运行时, features=["full"] 启用所有功能(网络、时间、多线程等)
-tokio = {version = "1.36", features = ["full"]}
+# Web 框架
+axum = { version = "0.7", features = ["macros", "multipart"] }
+tokio = { version = "1.36", features = ["full"] }
+tower-http = { version = "0.5", features = ["cors", "fs"] }
 
-# 数据库相关：sqlx 纯异步驱动，指定使用 tokio 和 postgres
+# 速率限制 (P0)
+tower = "0.4"
+tower_governor = "0.4"
+
+# 数据库
 sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres", "macros", "uuid", "chrono"] }
-# 读取 .env 文件
+
+# HTTP 客户端
+reqwest = { version = "0.11", features = ["json"] }
+
+# 环境变量
 dotenvy = "0.15"
+
 # 序列化/反序列化
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
-# 数据校验
+# 输入校验
 validator = { version = "0.16", features = ["derive"] }
 
-# 身份验证
+# 认证与加密
 jsonwebtoken = "9.2"
 bcrypt = "0.15"
 
-# 日志记录
+# 通用工具
+uuid = { version = "1.7", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# 日志
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
-# HTTP 中间件
-tower-http = { version = "0.5", features = ["cors", "auth"] }
+# RSS Feed 生成 (P2)
+rss = "2.0"
 
-uuid = { version = "1.7", features = ["v4", "serde"] }
-chrono = { version = "0.4", features = ["serde"] }
+# Slug 生成 (P2)
+slug = "0.1"
